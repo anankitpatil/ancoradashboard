@@ -1,0 +1,427 @@
+/* Ancora - Dashboard
+   26th Feb 2022 Ankit Patil
+  ankitpatil.com */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  max-width: 1250px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+}
+
+.text-right {
+  text-align: right;
+}
+
+nav {
+  background: linear-gradient(180deg, #087acc 0%, #179cf0 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+nav .container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .menu {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+nav .menu>li {
+  display: inline-block;
+  position: relative;
+}
+
+nav .menu>li,
+nav .menu>li>a {
+  color: #fff;
+  font-size: 14px;
+  padding: 31px 15px;
+  transition: all 0.3s ease;
+}
+
+nav .menu>li:hover {
+  background: #fff;
+  color: #087acc;
+}
+
+nav .menu>li:hover>a {
+  color: #087acc;
+}
+
+nav .menu>li>img {
+  display: inline-block;
+  margin-left: 6px;
+  vertical-align: 1px;
+  transition: all 0.3s ease;
+}
+
+nav .menu>li>.profile {
+  vertical-align: -8px;
+  margin-right: 6px;
+}
+
+nav .menu.right>li:first-child {
+  padding-bottom: 26px;
+  padding-top: 26px;
+}
+
+nav .menu>li:hover>img {
+  filter: brightness(0.8) hue-rotate(180deg);
+}
+
+nav .menu>li>ul {
+  list-style-type: none;
+  padding-left: 0;
+  position: absolute;
+  left: 0px;
+  top: 80px;
+  display: none;
+  width: 180px;
+  border: 1px solid #eee;
+  border-top: 0;
+  background: #FFF;
+  z-index: 9998;
+}
+
+nav .menu>li:hover>ul {
+  display: block;
+}
+
+nav .menu>li>ul>li>a {
+  padding: 15px;
+  display: block;
+  color: #087acc;
+  transition: all 0.3s ease;
+}
+
+nav .menu>li>ul>li>a:hover {
+  background: #eee;
+}
+
+.main {
+  background: rgba(231, 231, 231, 0.25);
+  padding-top: 120px;
+}
+
+.main .container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+}
+
+.main .container .col-4 {
+  grid-column: col-start / span 4;
+}
+
+.main .container .col-8 {
+  grid-column: col-start 5 / span 8;
+}
+
+.main .stat-box {
+  margin-bottom: 60px;
+}
+
+.main .stat-box>p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #989898;
+}
+
+.main .stat-box>p img {
+  float: right;
+}
+
+.main .stat-box .content {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  display: flex;
+  padding: 18px 15px;
+}
+
+.main .stat-box .content .col {
+  flex: 1 1 50%;
+}
+
+.main .stat-box .content .col-1-4 {
+  flex: 1 1 25%;
+}
+
+.main .stat-box .content .col-3-4 {
+  flex: 1 1 75%;
+}
+
+.main .stat-box .content .col:first-child,
+.main .stat-box .content .col-1-4 {
+  border-right: 1px dotted #000;
+  padding-right: 15px;
+}
+
+.main .stat-box .content .col.no-border {
+  border-right: 0;
+}
+
+.main .stat-box .content .col:last-child,
+.main .stat-box .content .col-3-4 {
+  padding-left: 15px;
+}
+
+.main .stat-box .content h5 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #087acc;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.main .stat-box .content h5 img {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -5px;
+}
+
+.main .stat-box .content h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.main .stat-box .content h2 span {
+  font-size: 12px;
+  color: #087acc;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+.main .stat-box .content button {
+  display: inline-block;
+  background: #36cc75;
+  border-radius: 10.5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  border: 0;
+  vertical-align: top;
+  margin-left: 30px;
+  padding: 3px 4px 4px;
+}
+
+.main .stat-box .content button img {
+  display: inline-block;
+  vertical-align: -3px;
+}
+
+.main .stat-box .content .col:first-child>p {
+  font-size: 12px;
+  line-height: 14px;
+  color: #087acc;
+  font-weight: 500;
+}
+
+.main .stat-box .content .col:first-child>p span {
+  margin-left: 30px;
+}
+
+.main .stat-box .content .col>p:not(:last-child) {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.main .stat-box .content .col>p:last-child {
+  margin-bottom: 0;
+}
+
+.main .stat-box .content .col:last-child>p {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.main .stat-box .content .col:last-child>p img {
+  vertical-align: top;
+}
+
+.main .stat-box .content .score h5 {
+  margin-top: 6px;
+}
+
+.main .stat-box .content .progress {
+  display: block;
+  width: 100%;
+  height: 20px;
+  background: #e7e7e7;
+  border-radius: 10px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.main .stat-box .content .progress>div {
+  height: 20px;
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #087acc 0%, #179cf0 100%);
+}
+
+.main .chart-box,
+.main .chart-box-2 {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 30px 45px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.main .chart-box h2 {
+  font-weight: 400;
+  font-size: 28px;
+  display: inline-block;
+  margin-top: 0;
+}
+
+.main .chart-box select,
+.main .chart-box-2 select {
+  float: right;
+  -webkit-appearance: none;
+  border: 1px solid #989898;
+  border-radius: 4px;
+  line-height: 36px;
+  padding: 0 60px 0 15px;
+}
+
+.main .chart-box .arrow,
+.main .chart-box-2 .arrow {
+  position: absolute;
+  top: 48px;
+  right: 60px;
+  filter: brightness(0.8) hue-rotate(180deg);
+}
+
+.main .chart-box .chart {
+  width: 100%;
+  height: 240px;
+  overflow: scroll;
+}
+
+.main .chart-box .chart .chart-container {
+  width: 1200px;
+  height: 240px;
+  display: block;
+}
+
+.main .chart-box-2 .chart {
+  height: 240px;
+}
+
+.main .chart-box-2 h2 {
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.main .table-box {
+  margin-bottom: 60px;
+}
+
+.main .table-box h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 45px;
+}
+
+.main .table-box table {
+  width: 100%;
+}
+
+.main .table-box table th {
+  background: #f5f5f5;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.main .table-box table td {
+  padding: 15px;
+  font-size: 14px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  transition: all 0.3s ease;
+}
+
+.main .table-box table tr:hover td {
+  background: #eff7ff;
+}
+
+.main .table-box table td button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  float: right;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.main .table-box table td button img {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+
+.main .table-box>button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font-weight: 500;
+  font-size: 12px;
+  float: right;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.main .table-box>button img {
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -3px;
+}
+
+footer {
+  background: #FFF;
+  padding: 15px 0;
+}
+
+footer .container {
+  justify-content: space-between;
+}
+
+footer p {
+  font-size: 12px;
+}
